@@ -12,7 +12,7 @@ Aprenderemos a ler e imprimir:
 - Caracteres
 - Cadeas de caracteres
 - ✨Magic ✨
-- 
+
 Ademais de tratar con:
 - Funcións matemáticas
 - Funcións de tratamento de caracteres
