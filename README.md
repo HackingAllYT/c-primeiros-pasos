@@ -1,7 +1,5 @@
-# c-primeiros-pasos
-Aprenderemos a ler e tratar os datos lidos empregando a consola e a terminal. Faremos operacións matemáticas e trataremos con cadeas de caracteres.
 # Primeiros pasos en C
-## _Tutorial definitivo para crear a túa primeira aplicación_
+## _Tutorial definitivo para comezar a programar_
 
 <p align="center"> <img width="200" height="200" src="https://avatars.githubusercontent.com/u/87182741?v=4"> </p>
 
@@ -13,11 +11,11 @@ Aprenderemos a ler e imprimir:
 - Variables numéricas
 - Caracteres
 - Cadeas de caracteres
-
+- ✨Magic ✨
+- 
 Ademais de tratar con:
 - Funcións matemáticas
 - Funcións de tratamento de caracteres
-- ✨Magic ✨
 
 ## Requisitos
 
