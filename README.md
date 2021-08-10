@@ -24,18 +24,19 @@ Ademais de tratar con:
 - Seguir este tutorial
 
 ## Contidos explicados
-Seguindo co [anterior tutoriall](https://github.com/HackingAllYT/configure-c-compiler "Curso previo"), 
-no que explicamos como se compila e como se imprimen datos por pantalla, neste imos a aprender a 
-introducir datos por consola, é dicir, tecleando nós os datos.
+Seguindo co [anterior tutorial](https://github.com/HackingAllYT/configure-c-compiler "Curso previo"), 
+no que explicamos como se compila e como se imprime unha frase predefinida por pantalla, neste imos 
+aprender a introducir datos por consola, é dicir, tecleando nós os datos.
 
 Para acadalo imos empregar a función ```scanf``` que, ao igual que ```printf```, atópase na librería
 ```stdio.h``` que podemos importar no noso programa empregando ```#include<stdio.h>```. Esta función
 acepta de dous a N argumentos de entrada, o primeiro deles sempre vai ser o que determina que tipos de
 parámetros se van ler, e de aí en diante, as variables que se van a empregar para almacenar os datos.
 
-Antes de nada, que son as variables? As variables son trozos de memoria que reserva o usuario para almacenar
-os datos que quere. Estas variables poden ser de tipo primitivo ou xerados polo usuario combinando tipos primitivos.
-Os tipos primitivos pódense diferenciar, alo menos para comezar, en numéricos e de texto.
+Antes de nada, que son as variables? As variables son trozos de memoria que reserva o usuario (programador)
+para almacenar os datos que quere. Estas variables poden ser de tipo primitivo ou xerados polo usuario 
+combinando tipos primitivos. Os tipos primitivos pódense diferenciar, alo menos para comezar, en numéricos
+e de texto.
 
 Tipos de datos numéricos:
 | Coloquialmente | Declaración no programa | Como se le / imprime |
@@ -53,4 +54,4 @@ Tipos de datos de texto:
 | Cadea de caracteres | ```char str[N]```* | ```%s``` |
 
 *Sendo ```str``` o  nome da variable e ```N``` a lonxitude de caracteres máximo a ler. Hai outras formas de facelo,
-máis esta é a máis doada á hora de comezar, xa que si non hai que empregar punteiros.
+mais esta é a máis doada á hora de comezar, xa que si non hai que empregar punteiros.
