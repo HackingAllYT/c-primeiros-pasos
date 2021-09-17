@@ -63,7 +63,7 @@ e que devolve a media deles. Para isto o que temos que facer é declarar as vari
 como recordaredes, é a función que se executa sempre nos nosos programas.
 
 A declaración de variables é moi sinxela e faise do seguinte xeito:
-```
+```C
 int main() {
   tipo nome;
 
@@ -74,7 +74,7 @@ int main() {
 ```
 
 No noso caso, como imos empregar variables de tipo float imos declaralas do seguinte xeito:
-```
+```C
 int main() {
   float val1;
   float val2;
@@ -89,7 +89,7 @@ int main() {
 Ainda que no exemplo que acabamos de definir as variables decláranse igual e sin ningún tipo de problema estas adóitanse declarar agrupadas por
 tipo de variable, é dicir, se temos tres variables de tipo ```float``` no noso programa poñémolas separadas por unha ```,```, é dicir, do seguinte
 xeito:
-```
+```C
 int main() {
   float val1, val2, media;
 
@@ -103,7 +103,7 @@ Agora que temos xa as varibles que imos empregar para o noso programa o que temo
 previamente, para isto imos empregar a función ```scanf``` que se inclúe na mesma librería que a función de ```printf``` que empregamos no primer tutorial.
 No caso que nos atopamos, como imos a ler dous número flotantes de precisión simple temos que empregar ```%f``` dentro do programa para almacenalos nas variables,
 isto acádase do seguinte xeito:
-```
+```C
 // Lectura dun número flotante de precisión simple
 scanf(" %f", &variable);
 ```
@@ -113,15 +113,15 @@ que se carguen datos que non se esperaban na nosa variable, xa que estos datos p
 
 No caso no que estamos e engadindo esta funcionalidade ao noso código podemos ler os datos introducidos por consola e almacenalos nas variables previamente
 declaradas do seguinte xeito:
-```
+```C
 int main() {
   float val1, val2, media;
 
-	// Lectura do dato
-	scanf(" %f", &val1);
+  // Lectura do dato
+  scanf(" %f", &val1);
 
-	// Lectura do dato
-	scanf(" %f", &val2);
+  // Lectura do dato
+  scanf(" %f", &val2);
 
   // Código
 
@@ -139,3 +139,81 @@ imprime para comprobar que o seu valor é o esperado.
 
 Unha vez temos os datos almacenados nas variables e comprobado que son os datos esperados e que non houbo ningún tipo de erro o que nos toca é calcular
 a media dos valores almacenados, para isto o que temos que facer é sumar os valores e dividilos entre dous almacenando o resultado na variable que nos queda sin empregar.
+
+Para calcular a media só é preciso que sumemos os valores almacenado nas dúas variables e dividilo entre dous, esta operación defínese igual que se fixera
+nunha calculadora manual, é dicir, ```(a + b) / 2``` cambiando 'a' e 'b' polo nome das variables asociando o resultado á variable 'media' que almacena o valor, para almacenar este valor tan só é preciso facer 
+``` c = (a + b) / 2 ```. Neste caso a operación sería:
+
+```C
+media = (val1 + val2) / 2.0;
+```
+
+*Dato interesante: Dividimos empregando '2.0' e non '2' para asegurarnos que o resultado da operación é un número flotante, xa que si empregamos '2' e ser un número enteiro pode provocar que o resultado sexa un valor aproximado.
+
+Tras almacenar o resulado na variable tan só queda imprimir o valor e comprobar que este valor que calculou o programa está correcto. Para acadalo o que se fai é empregar a función de 'printf' tal e como empregamos ata agora pero indicando que valor quremos que imprima, para iso temos que mirar a táboa de correspondencias dos tipos de datos e o que temos que empregar para poder escribilo ou lelo.
+
+Isto acádase poñendo este marcador no medio das comillas, no sitio que nos gustaría que se vira o resultado, que pode ir acompañado de texto, e poñendo, separado por comas, as variables que queremos imprimir. No noso caso podemos imprimir algo do estilo:
+
+```C
+// Imprimimos o valor resultado
+printf("Valor medio: %f\n", media);
+```
+
+## Segundo exemplo
+
+Neste exemplo imos a calcular o punto medio dun segmento, este exemplo é moi similar ao anterior, pero temos que ler máis datos polo que imos a ler varios datos empregando un só 'scanf'. Para ler varios datos o que hai que facer é o mesmo que vimos no anterior exemplo, é dicir, poñer dentro das comillas o tipo de valor que queremos ler, neste caso ao ser varios poñémolos un ao lado do outro separados por un espacio.
+
+No noso caso sería algo así (inclúese a declaración de variables e a lectura de ambos pares de puntos):
+```C
+int main(int argc, char **argv) {
+  // Declaración de variables locais
+  float valAX, valAY, valBX, valBY, puntoMedioX, puntoMedioY;
+
+  // Información do que queremos
+  printf ("Introduza os valores de A: ");
+  // Lectura do dato
+  scanf(" %f %f", &valAX, &valAY);
+
+  // Información do que queremos
+  printf ("Introduza os valores de B: ");
+  // Lectura do dato
+  scanf(" %f %f", &valBX, &valBY);
+
+  // Código
+
+  return 0;
+}
+```
+
+Unha vez temos os datos almacenados (podemos comprobar que se gardaron ben cun 'printf' dos valores das variables) aplicamos a fórmula para calcular o punto medio do segmento. Este punto medio calcúlase facendo a media dos puntos A e B separados polas súas compoñentes X e Y.
+
+```C
+// Calculamos o punto medio do segmento
+puntoMedioX = (valAX + valBX) / 2.0;
+puntoMedioY = (valAY + valBY) / 2.0;
+```
+
+Unha vez obtemos o resultado imprimímolo por pantalla empregando un formato que nos resulte cómodo para visualizar os datos, por exemplo:
+```C
+// Imprimimos o valor resultado
+printf("Valor medio: [%f, %f]\n", puntoMedioX, puntoMedioY);
+```
+
+### Segundo exemplo empregando vectores
+
+Este exercicio podémolo facer empregando un vector de dous elementos para cada un dos puntos e así ter unha variable para cada punto e non ter dúas variables por punto. Ao final o uso de memoria vai ser o mesmo, pero á hora da declaración imos empregar menos nomes de variables.
+
+#### Que é un vector?
+
+Un vector, array ou matriz é unha zona de almacenamento de datos contiguo en memoria que ten os datos ordeados posicionalmente.
+
+Ex de vector de dimensión 4:
+
+| Posición 0 | Posición 1 | Posición 2 | Posición 3 |
+|------------|------------|------------|------------|
+
+En C e na maioría de linguaxes de programación a primeira posición é a posición 0 e vai ata a lonxitude do array - 1, ao principio é algo confuso mais ten a súa lóxica.
+
+Comeza na posición 0 debido a como se almacenan os datos en memoria, imaxinemos que comeza na posición '0x0000' e un 'int' almacénase en 4 bytes, o primeiro elemento almacénase da posición '0x0000' ata '0x0003' inclusive. 
+
+Cando se executa o programa, este calcula as posicións de memoria sabendo a primeira posición na que está almacenada o array e multiplica a posición á que se quere acceder polo número de bytes que ocupa o tipo de datos do que se declarou. Por este motivo se a conta comeza en 1 este resultado sería erróneo e habería que realizar cálculos adicionais facendo que o rendemento do programa sexa moito menor.
