@@ -117,11 +117,11 @@ declaradas do seguinte xeito:
 int main() {
   float val1, val2, media;
 
-  // Lectura do dato
-  scanf(" %f", &val1);
+	// Lectura do dato
+	scanf(" %f", &val1);
 
-  // Lectura do dato
-  scanf(" %f", &val2);
+	// Lectura do dato
+	scanf(" %f", &val2);
 
   // Código
 
@@ -141,7 +141,7 @@ Unha vez temos os datos almacenados nas variables e comprobado que son os datos 
 a media dos valores almacenados, para isto o que temos que facer é sumar os valores e dividilos entre dous almacenando o resultado na variable que nos queda sin empregar.
 
 Para calcular a media só é preciso que sumemos os valores almacenado nas dúas variables e dividilo entre dous, esta operación defínese igual que se fixera
-nunha calculadora manual, é dicir, ```(a + b) / 2``` cambiando 'a' e 'b' polo nome das variables asociando o resultado á variable 'media' que almacena o valor, para almacenar este valor tan só é preciso facer 
+nunha calculadora manual, é dicir, ```(a + b) / 2``` cambiando 'a' e 'b' polo nome das variables asociando o resultado á variable 'media' que almacena o valor, para almacenar este valor tan só é preciso facer
 ``` c = (a + b) / 2 ```. Neste caso a operación sería:
 
 ```C
@@ -150,7 +150,7 @@ media = (val1 + val2) / 2.0;
 
 *Dato interesante: Dividimos empregando '2.0' e non '2' para asegurarnos que o resultado da operación é un número flotante, xa que si empregamos '2' e ser un número enteiro pode provocar que o resultado sexa un valor aproximado.
 
-Tras almacenar o resulado na variable tan só queda imprimir o valor e comprobar que este valor que calculou o programa está correcto. Para acadalo o que se fai é empregar a función de 'printf' tal e como empregamos ata agora pero indicando que valor quremos que imprima, para iso temos que mirar a táboa de correspondencias dos tipos de datos e o que temos que empregar para poder escribilo ou lelo.
+Tras almacenar o resultado na variable tan só queda imprimir o valor e comprobar que este valor que calculou o programa está correcto. Para acadalo o que se fai é empregar a función de 'printf' tal e como empregamos ata agora pero indicando que valor quremos que imprima, para iso temos que mirar a táboa de correspondencias dos tipos de datos e o que temos que empregar para poder escribilo ou lelo.
 
 Isto acádase poñendo este marcador no medio das comillas, no sitio que nos gustaría que se vira o resultado, que pode ir acompañado de texto, e poñendo, separado por comas, as variables que queremos imprimir. No noso caso podemos imprimir algo do estilo:
 
@@ -212,8 +212,123 @@ Ex de vector de dimensión 4:
 | Posición 0 | Posición 1 | Posición 2 | Posición 3 |
 |------------|------------|------------|------------|
 
-En C e na maioría de linguaxes de programación a primeira posición é a posición 0 e vai ata a lonxitude do array - 1, ao principio é algo confuso mais ten a súa lóxica.
+En C, e na maioría de linguaxes de programación, a primeira posición é a posición 0 e vai ata a lonxitude do array - 1, ao principio é algo confuso mais ten a súa lóxica, como veremos a continuación.
 
-Comeza na posición 0 debido a como se almacenan os datos en memoria, imaxinemos que comeza na posición '0x0000' e un 'int' almacénase en 4 bytes, o primeiro elemento almacénase da posición '0x0000' ata '0x0003' inclusive. 
+Comeza na posición 0 debido a como se almacenan os datos en memoria, imaxinemos que comeza na posición '0x0000' e un 'int' almacénase en 4 bytes, o primeiro elemento almacénase da posición '0x0000' ata '0x0003' inclusive.
 
-Cando se executa o programa, este calcula as posicións de memoria sabendo a primeira posición na que está almacenada o array e multiplica a posición á que se quere acceder polo número de bytes que ocupa o tipo de datos do que se declarou. Por este motivo se a conta comeza en 1 este resultado sería erróneo e habería que realizar cálculos adicionais facendo que o rendemento do programa sexa moito menor.
+Cando se executa o programa, este calcula as posicións de memoria sabendo a primeira posición na que está almacenada o array e multiplica a posición á que se quere acceder polo número de bytes que ocupa o tipo de datos do que se declarou. Por este motivo, se a conta comezara en 1, este resultado sería erróneo e habería que realizar cálculos adicionais facendo que o rendemento do programa sexa moito menor.
+
+### Como se declara un vector?
+
+Unha vez que xa sabemos que é un vector imos a explicar como se declara. Hai dúas formas principais de declaralos, empregando memoria estática ou dinámica. Se empregamos memoria estática o noso vector vai ter
+un tamaño fixo e inmutable, este tamaño determínase cando declaramos a variable. Se empregamos memoria dinámica (verémolo máis a fondo en próximos tutoriais) o tamaño do vector é modificable e este tamaño
+declárase cando desexamos (sempre antes de empregalo).
+
+| Memoria    | Declaración | Lectura   |
+|------------|-------------|------------|
+| Estática   | ```int vector[2];``` | ```scanf(" %d", &vector[0]);``` |
+| Dinámica   | ```int *vector = malloc(2 * sizeof(int));``` | ```scanf(" %d", &vector[0]);``` |
+
+No caso de da memoria dinámica é preciso facer a reserva de memoria, xa que si non a facemos o programa acabaría cun 'Segmentation fault', erro que ides a ver máis dunha vez, asegurado.
+Ao empregar 'malloc' (hai máis posibilidades para facer esta reserva) hai que liberar a memoria chamando á función ```free``` nas últimas liñas do noso 'main'. Exemplo básico destas notas:
+
+```C
+int main() {
+  // Declaración e reserva de memoria
+  int *vector = malloc(2 * sizeof(int));
+
+  // Lectura do dato
+  scanf(" %d", &vector[0]);
+
+  // Imprimimos o valor almacenado
+  printf("O número introducido é '%d'\n", vector[0]);
+
+  // Liberamos a memoria
+  free(vector);
+
+  return 0;
+}
+```
+
+### Cambios a realizar para empregar vectores
+
+Para comezar hai que cambiar as declaracións das variables e empregar vectores, no noso caso podemos empregar tres vectores, un para o primer punto, outro para o segundo e o terceiro para
+o resultado final. Podemos empregar vecores estáticos ou dinámicos, o máis cómodo neste caso é empregar estáticos, xa que o tamaño destes vectores non vai mudar durante a execución do programa.
+
+```C
+int int main(int argc, char const *argv[]) {
+  // Declaración das variables
+  float puntoA[2], puntoB[2], resultado[2];
+
+  return 0;
+}
+```
+
+Tras declarar os vectores o único que temos que facer é cambiar onde aparece 'valAX' por 'puntoA[0]' e onde aparece 'valAY' por 'puntoA[1]' e así respectivamente co resto de variables que empregamos
+ao longo do programa, xa que antes tíñamos diferentes nomes para cada compoñente dos puntos, e agora temos a mesma variable (vector) en diferentes posicións.
+
+## Terceiro exemplo
+
+Tras ter certos coñecementos acerca de como funcionan os números en C imos a comezar cos caracteres, neste exemplo imos a aprender como se pode ler un caracter, almacenalo e devolvelo empregando as
+funcións 'toupper' e 'tolower' que serven para poñer en maiúsculas e minúscalas estos caracteres, respectivamente. Estas funcións inclúense ca librería 'ctype.h'.
+
+Como vimos na táboa inicial de como se len os diferentes tipos de datos, para o caso dos caracteres temos que declarar a variable empregando o tipo de datos 'char'. Como se mostra no seguinte exemplo:
+
+```C
+int int main(int argc, char const *argv[]) {
+  // Declaración de variables locais
+  char letra;
+
+  return 0;
+}
+```
+
+Unha vez temos declarada a variable na que imos a almacenar o caracter lido temos que solicitarlle ao usuario que nos diga que caracter quere procesar. Para isto empregamos 'scanf' do mesmo xeito
+que empregamos anteriormente cos valores numéricos, é dicir, ```scanf(" %c", &letra);```
+
+Poñendo en conxunto as diferentes partes aquí descritas podemos obter un programa que nos imprime a maiúscula e minúscula da letra introducida por terminal que sexa similar ao seguinte:
+
+```C
+// Importamos as librerías
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+
+int int main(int argc, char const *argv[]) {
+  // Declaración de variables locais
+  char letra;
+
+  // Lectura do dato
+  scanf(" %c", &letra);
+
+  // Imprimimos o resultado
+  printf("A letra maiúscula de '%c' é: '%c'\n", letra, toupper(letra));
+  printf("A letra minúscula de '%c' é: '%c'\n", letra, tolower(letra));
+
+  return 0;
+}
+```
+
+Neste caso en concreto non almacenamos o valor devolto por 'toupper' e 'tolower', xa que se despois non imos a volver a empregar este resultado. No caso de que si precisáramos este valor devolto podíamolo
+almacenar nunha variable para poder acceder a este valor cando fose preciso. O cambio sería engadir as variables que almacenan estos caracteres modificados e unha vez lido o caracter que introduce o usuario,
+asignarlles un valor.
+
+```C
+// Importamos as librerías
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+
+int int main(int argc, char const *argv[]) {
+  // Declaración de variables locais
+  char letra, minus, maius;
+
+  // Lectura do dato
+  scanf(" %c", &letra);
+
+  minus = tolower(letra);
+  maius = toupper(letra);
+
+  return 0;
+}
+```
