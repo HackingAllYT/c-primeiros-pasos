@@ -332,3 +332,20 @@ int int main(int argc, char const *argv[]) {
   return 0;
 }
 ```
+
+## Cuarto exemplo
+
+Os caracteres son unha ferramenta moi interesante e importante en C, xa que con eles pódense facer infinidade de cousas, por exemplo se queres saber o código ASCII dun caracter o único que tes que facer
+é imprimir o seu valor coma se fose un número enteiro, por exemplo:
+
+```C
+int int main(int argc, char const *argv[]) {
+  char letra = 'c';
+
+  printf("O código ASCII da letra '%c' é: '%d'\n", letra, letra);
+
+  return 0;
+}
+```
+
+Neste exemplo non solicitamos que caracter quere o usuario, mais non é un problema, xa que funciona igual se empregamos un 'scanf' para ler o valor que introduzca o usuario.
