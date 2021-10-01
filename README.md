@@ -256,7 +256,7 @@ Para comezar hai que cambiar as declaracións das variables e empregar vectores,
 o resultado final. Podemos empregar vecores estáticos ou dinámicos, o máis cómodo neste caso é empregar estáticos, xa que o tamaño destes vectores non vai mudar durante a execución do programa.
 
 ```C
-int int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[]) {
   // Declaración das variables
   float puntoA[2], puntoB[2], resultado[2];
 
@@ -275,7 +275,7 @@ funcións 'toupper' e 'tolower' que serven para poñer en maiúsculas e minúsca
 Como vimos na táboa inicial de como se len os diferentes tipos de datos, para o caso dos caracteres temos que declarar a variable empregando o tipo de datos 'char'. Como se mostra no seguinte exemplo:
 
 ```C
-int int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[]) {
   // Declaración de variables locais
   char letra;
 
@@ -294,7 +294,7 @@ Poñendo en conxunto as diferentes partes aquí descritas podemos obter un progr
 #include<stdlib.h>
 #include<ctype.h>
 
-int int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[]) {
   // Declaración de variables locais
   char letra;
 
@@ -319,7 +319,7 @@ asignarlles un valor.
 #include<stdlib.h>
 #include<ctype.h>
 
-int int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[]) {
   // Declaración de variables locais
   char letra, minus, maius;
 
@@ -339,7 +339,7 @@ Os caracteres son unha ferramenta moi interesante e importante en C, xa que con 
 é imprimir o seu valor coma se fose un número enteiro, por exemplo:
 
 ```C
-int int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[]) {
   char letra = 'c';
 
   printf("O código ASCII da letra '%c' é: '%d'\n", letra, letra);
