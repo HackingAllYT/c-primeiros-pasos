@@ -348,4 +348,103 @@ int main(int argc, char const *argv[]) {
 }
 ```
 
-Neste exemplo non solicitamos que caracter quere o usuario, mais non é un problema, xa que funciona igual se empregamos un 'scanf' para ler o valor que introduzca o usuario.
+Neste exemplo non solicitamos que caracter quere o usuario, mais non é un problema, xa que funciona igual se empregamos un 'scanf' para ler o valor que introduzca o usuario. Tendo en conta que para que funcione correctamente o 'scanf' cómpre deixar un espazo en branco antes de poñer o signo ``%``. Do mesmo xeito que está no código anterior para coller o caracter que queremos empregar para mostrar en letras maíusculas e minúsculas.
+
+## Quinto exemplo
+
+A continuación imos a realizar un exercizo moi sinxelo para aprender a como tratar os números reais (con decimais) nos nosos programas, para iso imos a ver que métodos e como se poden redondear estes números.
+
+Para realizar esta acción é preciso incluír no noso programa a librería matemática que conta con estas funcións, é dicir, ``math.h``.
+
+
+```C
+// Importamos as librerías
+#include<stdio.h>
+#include<math.h>
+
+int main(int argc, char const *argv[]) {
+  // Declaración de variables locais
+  float number = 2.2;
+
+  printf(
+    "O número %f aproximado é:\n"
+    "Empregando floor: %f\n"
+    "Empregando ceil:  %f\n"
+    "Empregando round: %f\n\n", number, floor(number), ceil(number), round(number)
+  );
+
+  number = 2.7;
+
+  printf(
+    "O número %f aproximado é:\n"
+    "Empregando floor: %f\n"
+    "Empregando ceil:  %f\n"
+    "Empregando round: %f\n\n", number, floor(number), ceil(number), round(number)
+  );
+
+  number = -2.2;
+
+  printf(
+    "O número %f aproximado é:\n"
+    "Empregando floor: %f\n"
+    "Empregando ceil:  %f\n"
+    "Empregando round: %f\n\n", number, floor(number), ceil(number), round(number)
+  );
+
+  number = -2.7;
+
+  printf(
+    "O número %f aproximado é:\n"
+    "Empregando floor: %f\n"
+    "Empregando ceil:  %f\n"
+    "Empregando round: %f\n\n", number, floor(number), ceil(number), round(number)
+  );
+
+  return 0;
+}
+```
+
+Ao igual que nos casos anteriores podemos pedirlle ao usuario o número que o desexa para facer que o código devolva as aproximacións do número introducido polo usuario. Tamén podemos realizar unha función para evitar ter que copiar e pegar o mesmo código unha e outra vez, pero isto é un pouco máis complexo para comezar.
+
+### Engadir unha pequena función
+
+O noso código está composto por unha infinidade de funcións, ata agora empregamos moitas que veñen por defecto nas librerías, como pode ser o ``printf``, ``scanf``, ``ceil``, ``floor``, etc. Polo tanto unha función é un trozo de código que contén unha funcionalidade implementada e pode ser executada tantas veces como se desexe.
+
+Para o caso que nos ocupa temos que definir unha función que reciba como parámetro o número que queremos aproximar e imprimir os diferentes valores aproximados.
+
+```C
+// Importamos as librerías
+#include<stdio.h>
+#include<math.h>
+
+// Declaramos a función
+/**
+ * Función que serve para aproximar un número imprimindo por pantalla os valores aproximados
+ * @param number número que se desexa aproximar
+ */
+void aproximar(float number) {
+  printf(
+    "O número %f aproximado é:\n"
+    "Empregando floor: %f\n"
+    "Empregando ceil:  %f\n"
+    "Empregando round: %f\n\n", number, floor(number), ceil(number), round(number)
+  );
+}
+
+int main(int argc, char const *argv[]) {
+  // Declaración de variables locais
+  float number = 2.2;
+  aproximar(number);
+
+  number = 2.7;
+  aproximar(number);
+
+  number = -2.2;
+  aproximar(number);
+
+  number = -2.7;
+  aproximar(number); 
+
+  return 0;
+}
+```
