@@ -404,6 +404,14 @@ int main(int argc, char const *argv[]) {
 }
 ```
 
+Para compilar este exercicio é preciso incluir a librería matemática á hora de compilar empregando a liña de comandos, isto é, incluir o parámetro ``-lm`` para que o compilador sepa que o programa inclúe esta librería e non nos dea un erro ao compilar. Isto podémolo facer do seguinte xeito:
+
+```gcc exercicio5.c -o exercicio5 -lm```
+
+Tras executar o anterior comando podemos executar o programa sen problema, tal e como vimos anteriormente, isto podémolo facer do seguinte xeito:
+
+```./exercicio5```
+
 Ao igual que nos casos anteriores podemos pedirlle ao usuario o número que o desexa para facer que o código devolva as aproximacións do número introducido polo usuario. Tamén podemos realizar unha función para evitar ter que copiar e pegar o mesmo código unha e outra vez, pero isto é un pouco máis complexo para comezar.
 
 ### Engadir unha pequena función
@@ -446,5 +454,35 @@ int main(int argc, char const *argv[]) {
   aproximar(number); 
 
   return 0;
+}
+```
+
+Compilando e probando este código podemos ver que o resultado de ambas versións do noso programa é a mesma, polo que podemos tomar nota para futuros programas e así aforrarnos liñas de código creando funcións. Estas funcións farán que contemos con menos erros á hora de realizar cambios, xa que só o teremos que facer nun sitio, mentras que no outro caso terémolo que facer a mesma modificación en inumerables sitios.
+
+## Sexto exemplo
+
+Para finalizar imos a realizar un pequeno exercicio no que imos a contar o número de caracteres que forman unha palabra. Isto podémolo realizar empregando a función definida na librería ```string.h``` denominada ```strlen```. Esta función recibe unha cadea como entrada e devolve o número de caracteres que a forman.
+
+```C
+// Importamos as librerías
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+// Función main, parte EXECUTIVA
+int main(int argc, char **argv) {
+	// Declaración de variables locais
+	char cadea[40];
+
+	// Información do que queremos
+	printf ("Introduza a palabra da que queres coñecer o seu número de letras: ");
+	// Lectura do dato
+	scanf(" %s", cadea);
+
+	// Imprimimos o resultado
+	printf("A palabra '%s' ten: '%ld' letras\n", cadea, strlen(cadea));
+
+	// Fin da parte executiva
+	return (EXIT_SUCCESS);
 }
 ```
