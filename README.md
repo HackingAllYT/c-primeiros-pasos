@@ -117,11 +117,11 @@ declaradas do seguinte xeito:
 int main() {
   float val1, val2, media;
 
-	// Lectura do dato
-	scanf(" %f", &val1);
-
-	// Lectura do dato
-	scanf(" %f", &val2);
+  // Lectura do dato 
+  scanf(" %f", &val1);
+  
+  // Lectura do dato
+  scanf(" %f", &val2);
 
   // Código
 
@@ -471,18 +471,18 @@ Para finalizar imos a realizar un pequeno exercicio no que imos a contar o núme
 
 // Función main, parte EXECUTIVA
 int main(int argc, char **argv) {
-	// Declaración de variables locais
-	char cadea[40];
+  // Declaración de variables locais
+  char cadea[40];
 
-	// Información do que queremos
-	printf ("Introduza a palabra da que queres coñecer o seu número de letras: ");
-	// Lectura do dato
-	scanf(" %s", cadea);
+  // Información do que queremos
+  printf ("Introduza a palabra da que queres coñecer o seu número de letras: ");
+  // Lectura do dato
+  scanf(" %s", cadea);
 
-	// Imprimimos o resultado
-	printf("A palabra '%s' ten: '%ld' letras\n", cadea, strlen(cadea));
+  // Imprimimos o resultado
+  printf("A palabra '%s' ten: '%ld' letras\n", cadea, strlen(cadea));
 
-	// Fin da parte executiva
-	return (EXIT_SUCCESS);
+  // Fin da parte executiva
+  return (EXIT_SUCCESS);
 }
 ```
