@@ -463,6 +463,31 @@ Compilando e probando este código podemos ver que o resultado de ambas versión
 
 Para finalizar imos a realizar un pequeno exercicio no que imos a contar o número de caracteres que forman unha palabra. Isto podémolo realizar empregando a función definida na librería ```string.h``` denominada ```strlen```. Esta función recibe unha cadea como entrada e devolve o número de caracteres que a forman.
 
+Imos realizar un programa que sexa quen de ler os caracteres, para isto imos a declarar unha variable de tipo ```char``` para poder así almacenar os datos introducidos polo usuario. Para gardar os caracteres en memoria podemos facelo de dúas formas, de forma estática ou de forma dinámica. Para facelo o máis sinxelo posible, neste primeiro caso imos a facelo de xeito estático, é dicir, a variable vai contar cun espacio de memoria reservado de xeito fixo e coñecido en tempo de compilación.
+
+Isto ímolo a realizar do seguinte xeito:
+
+```C
+// Declaración da variable local
+char cadea[40];
+```
+
+Deste xeito imos a ter unha variable local que pode almacenar ata corenta caracteres, que é o número de bytes que reservamos en memoria para este casp de proba. Unha vez temos esta variable é preciso realizar a lectura dos datos que queremos, para así poder contar o número de letras cas que conta. Para isto imos a empregar a función ```scanf```, ao igual que nos casos anteriores. Neste caso contamos ca variable ```cadea``` que é de tipo ```cadea de caracteres```, polo tanto é preciso ler os datos do seguinte xeito:
+
+```C
+// Lectura do dato
+scanf(" %s", cadea);
+```
+
+Para finalizar, temos que imprimir o número de caracteres introducidos polo usuario, isto podémolo conseguir dun xeito moi doado ca seguinte liña de código:
+
+```C
+// Imprimimos o resultado
+printf("A palabra '%s' ten: '%ld' letras\n", cadea, strlen(cadea));
+```
+
+Tras separar e explicar todos os pasos podemos xuntalos nun mesmo programa para poder compilalo e executalo para testealo e así comprobar o seu funcionamento, tal e como podemos ver a continuación:
+
 ```C
 // Importamos as librerías
 #include<stdio.h>
@@ -486,3 +511,7 @@ int main(int argc, char **argv) {
   return (EXIT_SUCCESS);
 }
 ```
+
+### Declaración da variable de xeito dinámico
+
+Se queremos realizar este exercizo empregando variables dinámicas é preciso implementar unha serie de modificacións para poder definir a variable local como dinámica.
