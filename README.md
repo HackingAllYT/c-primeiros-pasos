@@ -3,9 +3,7 @@
 
 <p align="center"> <img width="200" height="200" src="https://avatars.githubusercontent.com/u/87182741?v=4"> </p>
 
-C é unha das linguaxes máis extendidas e unha das máis populares debido á súa
-potencia e velocidade. Neste caso empregarase para comezar a apaixonte andaina
-da programación.
+C é unha das linguaxes máis extendidas e unha das máis populares debido á súa potencia e velocidade. Neste caso empregarase para comezar a apaixonte andaina da programación.
 
 Aprenderemos a ler e imprimir:
 - Variables numéricas
@@ -514,4 +512,33 @@ int main(int argc, char **argv) {
 
 ### Declaración da variable de xeito dinámico
 
-Se queremos realizar este exercizo empregando variables dinámicas é preciso implementar unha serie de modificacións para poder definir a variable local como dinámica.
+Se queremos realizar este exercizo empregando variables dinámicas é preciso implementar unha serie de modificacións para poder definir a variable local como dinámica. Isto témolo que facer en varios pasos, xa que a diferencia das variables estáticas, estas non teñen unha memoria reservada por defecto e polo tanto temos que ser nós os encargados de reservar a memoria.
+
+As variables dinámicas defínense e empréganse en tres pasos:
+- A declaración do nome da variable
+- A reserva de memoria
+- O seu uso
+
+```C
+
+// Declaración do nome da variable
+char *cadea;
+
+// Reserva da memoria
+cadea = (char*) malloc(sizeof(char) * 40);
+
+// Uso da variable
+scanf(" %s", cadea);
+
+```
+
+Tras realizar isto podemos empregala do mesmo xeito que no caso anterior, é dicir, poderíamos chamar á función ```strlen``` para contar cantos caracteres ten a cadea.
+
+A maiores, estas variables teñen que liberar a memoria reservada antes da finalización do programa, para evitar que esta memoria quede reservada indefinidamente (ata que o Kernel do sistema se decate e a libere, ou en sistemas máis modernos, isto faise automáticamente).
+
+Para realizar esta acción chega con empregar a seguinte función antes de realizar a finalización do programa, esta é:
+
+```C
+// Liberación da memoria
+free(cadea);
+```
